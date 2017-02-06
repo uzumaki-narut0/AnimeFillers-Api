@@ -40,7 +40,7 @@ for link in anime_links:
         continue
     filler_list_odd = episode_list.findAll('tr',attrs = {"class":"filler odd"})
     filler_list_even = episode_list.findAll('tr',attrs = {"class":"filler even"})
-    print(filler_list_even)
+    #print(filler_list_even)
     
    # print(episode_row_data.string)
     
@@ -55,10 +55,6 @@ for link in anime_links:
         episode_air_date = episode.find('td',attrs = {"class":"Date"})
         anime_list[i]["fillers_list"].append({"name":episode_name.string,"episode_no":episode_no.string,"air_date":episode_air_date.string})
     i += 1
-    '''
-    if i == 20:
-        break
-        '''
     
 class AnimeFillersApi(Resource):
     def get(self):
