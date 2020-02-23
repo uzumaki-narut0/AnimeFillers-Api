@@ -38,20 +38,21 @@ for link in anime_links:
     #print(episode_list)
     if not episode_list:
         continue
-    filler_list_odd = episode_list.findAll('tr',attrs = {"class":"filler odd"})
-    filler_list_even = episode_list.findAll('tr',attrs = {"class":"filler even"})
+    filler_list_odd = episode_list.findAll('tr',attrs = {"class":"manga_canon odd"})
+    filler_list_even = episode_list.findAll('tr',attrs = {"class":"manga_canon even"})
     #print(filler_list_even)
+    #print(filler_list_odd)
     
-   # print(episode_row_data.string)
+    #print(episode_row_data.string)
     
     for episode in filler_list_even:
         episode_name = episode.find('td',attrs = {"class":"Title"})
-        episode_no = episode.find('td',attrs = {"class":"Number active"})
+        episode_no = episode.find('td',attrs = {"class":"Number"})
         episode_air_date = episode.find('td',attrs = {"class":"Date"})
         anime_list[i]["fillers_list"].append({"name":episode_name.string,"episode_no":episode_no.string,"air_date":episode_air_date.string})
     for episode in filler_list_odd:
         episode_name = episode.find('td',attrs = {"class":"Title"})
-        episode_no = episode.find('td',attrs = {"class":"Number active"})
+        episode_no = episode.find('td',attrs = {"class":"Number"})
         episode_air_date = episode.find('td',attrs = {"class":"Date"})
         anime_list[i]["fillers_list"].append({"name":episode_name.string,"episode_no":episode_no.string,"air_date":episode_air_date.string})
     i += 1
